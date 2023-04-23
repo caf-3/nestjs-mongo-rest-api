@@ -49,4 +49,10 @@ export class BookService {
       runValidators: true,
     });
   }
+
+  async deleteById(id: string): Promise<Book> {
+    const bookExists = await this.bookExist(id);
+    if (!bookExists) throw new NotFoundException('Book not found.');
+    return await this.bookModel.findByIdAndDelete(id);
+  }
 }
