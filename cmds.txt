@@ -1,0 +1,3 @@
+nest g module [module-name]
+nest g controller [module-name]
+nest g service [module-name] --no-spec
